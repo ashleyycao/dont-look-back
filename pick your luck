@@ -45,5 +45,3 @@ while again.upper() == "Y":
         squaresList.append(number)
     else:
         print(f"{number} is not a perfect square. Please try again.")
-
-print("Game over.")
