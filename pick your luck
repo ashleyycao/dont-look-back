@@ -11,7 +11,7 @@ def is_perfect_square(number):
     return root * root == number
 
 while again.upper() == "Y":
-    if len(squaresList) == 11:
+    if len(squaresList) == 12:
         print("Congrats! The door has been unlocked. Get inside quick!")
         break
 
