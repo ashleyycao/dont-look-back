@@ -1,0 +1,49 @@
+import math
+import time
+
+numberList = []
+squaresList = []
+again = "Y"
+endTime = time.time() + 10
+
+def is_perfect_square(number):
+    root = math.isqrt(number)
+    return root * root == number
+
+while again.upper() == "Y":
+    if len(squaresList) == 11:
+        print("Congrats! The door has been unlocked. Get inside quick!")
+        break
+
+    if time.time() >= endTime:
+        again = input("Too slow. You have been attacked. Play again? (Y/N): ")
+        if again.upper() == "Y":
+            numberList = []
+            squaresList = []
+            endTime = time.time() + 10
+        else:
+            break
+
+    remaining_time = int(endTime - time.time())
+    print(f"Time remaining: {remaining_time} seconds")
+    try:
+        number = int(input("Enter a positive integer: "))
+        if number <= 0:
+            print("Invalid input. Please enter a positive integer.")
+            continue
+    except ValueError:
+        print("Invalid input. Please enter a positive integer.")
+        continue
+
+    if number in numberList:
+        print("Number already used. Please enter a different number.")
+        continue
+
+    numberList.append(number)
+    if is_perfect_square(number):
+        print(f"{number} is a perfect square!")
+        squaresList.append(number)
+    else:
+        print(f"{number} is not a perfect square. Please try again.")
+
+print("Game over.")
